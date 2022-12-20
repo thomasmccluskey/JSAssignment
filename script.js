@@ -1,80 +1,28 @@
-// Eloquent Javascript
-// Chapter 2 
-// Fizzbuzz
-function fizzBuzz() {
-  for (num = 1; num < 101; num++)
-    if (num % 3 == 0 && num % 5 == 0)
-      console.log("fizzbuzz");
-    else if (num % 3 == 0)
-      console.log("fizz");
-    else if (num % 5 == 0)
-      console.log("buzz");
-    else
-      console.log(n);
-}
+let image1 = document.getElementById("img1");
+let image2 = document.getElementById("img2");
+let image3 = document.getElementById("img3");
+let image4 = document.getElementById("img4");
+let image5 = document.getElementById("img5");
+let image6 = document.getElementById("img6");
+let image7 = document.getElementById("img7");
 
-// Chapter 3
-// Minimum
+let array = [image1, image2, image3, image4, image5, image6, image7];
 
-var min = function (number1, number2) {
-  if (number1 < number2) {
-    return number1;
-  } else {
-    return number2;
-  }
-}
 
-// JS Way
-// Chapter 6
-// Bank Account
+function images() {
+    const thisImage = Math.floor(Math.random() * array.length);
+    array[thisImage].style.display = "block";
+    console.log(thisImage);
 
-function bank() {
-  const account = {
-    owner: 'Alex',
-    balance = 0,
-    credit(amount) {
-      this.balance += amount;
-    },
-    describe() {
-      return `owner: ${this.owner}, balance: ${this.balance}`;
+    for (let i = 0; i < array.length; i++) {
+        if (i !== thisImage) {
+            array[i].style.display = "none";
+        }
     }
-  }
-  console.log(account.describe());
-  account.credit(250);
-  account.credit(-80);
-  console.log(account.describe());
-}
 
-// Chapter 7
-// Musketeers
-
-function musketeers() {
-  const musketeers = ["athos", "porthos", "aramis"];
-  for (i = 0; i < musketeers.length; i++) {
-    console.log(musketeers[i]);
-  }
-  musketeers.push("D'Artagnan");
-  musketeers.forEach(musketeer => {
-    console.log(musketeer);
-  })
-  musketeers.splice(2, 1);
-  for (const musketeer of musketeers) {
-    console.log(musketeer);
-  }
 }
 
 
-// Chapter 8
-// Word Info
+setInterval(images, 100);
 
-function wordInfo(word) {
-  console.log(`The length of the word is ${word.length}, in lowercase it's ${word.toLowerCase()}, in uppercase it's ${word.toUpperCase()}`);
-  //Palindrome
-  for (let i = 0; i < word.length; i++) {
-    if (word[i] !== word[length - 1 - i]) {
-      return `It's not a palindrome`
-    } else {
-      return `It's a palindrome`
-    }
-  }
-}
+
